@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block title %}
+Echostream-Player
+{% endblock %}
+
+
+{% block content %}
+
+<style>
+    .player-container {
+        text-align: center;
+        margin-top: 50px;
+    }
+    .audio-controls {
+        margin-top: 20px;
+    }
+    audio {
+        width: 100%;
+        max-width: 600px;
+    }
+</style>
+<body>
+<div class="container player-container">
+    <h1 class="title">Music Player</h1>
+    <audio id="audioPlayer" controls>
+        <source src="./static/music/sample.mp3" type="audio/mpeg">
+    </audio>
+</div>
+<script>
+    var audio = document.getElementById('audioPlayer');
+
+    function playAudio() {
+        audio.play();
+    }
+
+    function pauseAudio() {
+        audio.pause();
+    }
+
+    function stopAudio() {
+        audio.pause();
+        audio.currentTime = 0;
+    }
+</script>
+</body>
+
+{% endblock %}
